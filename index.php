@@ -22,6 +22,14 @@ function getFiles($dir) {
 }
 $array = getFiles($dir);
 echo '<pre>';
-var_dump($array);
+//var_dump($array);
 echo '</pre>';
 ?>
+
+<?php
+//обход папки c использованием Iterator
+
+$dir = new RecursiveIteratorIterator(new RecursiveDirectoryIterator('.'), true);
+foreach ($dir as $file) {
+    echo str_repeat('-', $dir->getDepth()) ." $file<br/>";
+}
